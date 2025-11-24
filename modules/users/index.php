@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+    <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 shadow" data-bs-theme="primary">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Hola <?php echo $_SESSION['name']; ?></a>
         <a href="cerrar_sesion.php" class="btn btn-danger">Cerrar sesión</a>
     </header>

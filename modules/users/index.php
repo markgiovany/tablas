@@ -12,7 +12,7 @@
 
 <body>
     <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 shadow" data-bs-theme="primary">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Hola <?php echo $_SESSION['name']; ?></a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Hola, <?php echo $_SESSION['name']; ?></a>
         <a href="cerrar_sesion.php" class="btn btn-danger">Cerrar sesión</a>
     </header>
     <div class="container-fluid">
@@ -28,11 +28,14 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="#">
                                     Usuarios
                                 </a>
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="../subjects/index.php">
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../subjects/index.php">
                                     Materias
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../logs/index.php">
+                                    Registros
                                 </a>
                             </li>
                         </ul>

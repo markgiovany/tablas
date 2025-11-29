@@ -33,9 +33,15 @@ $record = $result ->fetch_object();
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item"> 
-                                <a class="nav-link d-flex align-items-center gap-2 active bg-primary text-white rounded-4" aria-current="page" href="../subjects/"> 
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="#">
+                                    Usuarios
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../subjects/index.php">
                                     Materias
-                                </a> 
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../logs/index.php">
+                                    Registros
+                                </a>
                             </li>
                         </ul>
                     </div>

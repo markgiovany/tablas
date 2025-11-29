@@ -27,12 +27,12 @@
                                 <a class="nav-link d-flex align-items-center gap-2 active bg-primary text-white rounded-4" aria-current="page" href="../users/index.php">
                                     Usuarios
                                 </a>
-                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="#"> 
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../subjects/index.php"> 
                                     Materias
                                 </a>
-                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../logs/index.php"> 
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="#"> 
                                     Registros
-                                </a>  
+                                </a> 
                             </li>
                         </ul>
                     </div>
@@ -40,23 +40,21 @@
             </div>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 text-uppercase">Materias<a href="insert.html" class="btn btn-primary mx-2 mb-2"><i class="bi bi-journal-plus"></i></a></h1>
+                    <h1 class="h2 text-uppercase">Registro</h1>
                 </div>
                 <div class="table-responsive small">
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Cuatrimestre</th>
-                                <th scope="col">Color</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">Mensaje</th>
+                                <th scope="col">Fecha</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                             require_once '../../lib/config.php';
-                            $query = "SELECT * FROM courses";
+                            $query = "SELECT * FROM logs";
                             $result = $conexion -> query($query);
                             if($result -> num_rows == 0){
                             ?> 
@@ -69,14 +67,9 @@
                             while ($row = $result -> fetch_object()){
                             ?>
                                 <tr> 
-                                    <td class="fw-bold"><?php echo $row -> IDcourses; ?></td>
-                                    <td class="fw-bold"><?php echo $row -> Name; ?></td>
-                                    <td class="fw-semibold mx-5"><?php echo $row -> Period; ?></td>
-                                    <td class="fw-semibold"><?php echo $row -> Color; ?></td>
-                                    <td>
-                                        <a href="update_form.php?IDcourses=<?php  echo $row -> IDcourses; ?>" class="btn btn-warning"><i class="bi bi-journal-code"></i></a>
-                                        <a href="confirm.php?IDcourses=<?php echo $row -> IDcourses; ?>" class="btn btn-danger"><i class="bi bi-journal-minus"></i></a>
-                                    </td>
+                                    <td class="fw-bold"><?php echo $row -> id; ?></td>
+                                    <td class="fw-bold"><?php echo $row -> message; ?></td>
+                                    <td class="fw-bold"><?php echo $row -> inserted_at; ?></td>
                                 </tr>
                             <?php
                             }

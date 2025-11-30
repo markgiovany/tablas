@@ -12,7 +12,7 @@
 
 <body>
     <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 shadow" data-bs-theme="primary">
-        <h1 class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-3 text-white pt-2 text-uppercase"><?php echo $_SESSION['name']; ?></h1>
+        <h1 class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white pt-2 text-uppercase"><?php echo $_SESSION['name']; ?></h1>
     </header>
     <div class="container-fluid">
         <div class="row">

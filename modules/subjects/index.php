@@ -13,6 +13,7 @@
 <body>
     <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 shadow" data-bs-theme="primary">
         <h1 class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white pt-2 text-uppercase"><?php echo $_SESSION['name']; ?></h1>
+        <a href="cerrar_sesion.php" class="btn btn-danger">Cerrar sesión</a>
     </header>
     <div class="container-fluid">
         <div class="row">
@@ -27,7 +28,10 @@
                                 <a class="nav-link d-flex align-items-center gap-2  active bg-primary text-white rounded-4" aria-current="page" href="../users/index.php">
                                     Usuarios
                                 </a>
-                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="#"> 
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../teachers/index.php"> 
+                                    Profesores
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../subjects/index.php"> 
                                     Materias
                                 </a>
                                 <a class="nav-link d-flex align-items-center gap-2 mt-2 active bg-primary text-white rounded-4" aria-current="page" href="../logs/index.php"> 

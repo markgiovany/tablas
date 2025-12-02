@@ -44,21 +44,22 @@
             </div>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 text-uppercase">Registro</h1>
+                    <h1 class="h2 text-uppercase">Profesores<a href="insert.html" class="btn btn-primary mx-2 mb-2"><i class="bi bi-journal-plus"></i></a></h1>
                 </div>
                 <div class="table-responsive small">
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Mensaje</th>
-                                <th scope="col">Fecha</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                             require_once '../../lib/config.php';
-                            $query = "SELECT * FROM logs";
+                            $query = "SELECT * FROM teachers";
                             $result = $conexion -> query($query);
                             if($result -> num_rows == 0){
                             ?> 
@@ -72,8 +73,12 @@
                             ?>
                                 <tr> 
                                     <td class="fw-bold"><?php echo $row -> id; ?></td>
-                                    <td class="fw-bold"><?php echo $row -> message; ?></td>
-                                    <td class="fw-bold"><?php echo $row -> inserted_at; ?></td>
+                                    <td class="fw-bold"><?php echo $row -> name; ?></td>
+                                    <td class="fw-semibold mx-5"><?php echo $row -> email; ?></td>
+                                    <td>
+                                        <a href="update_form.php?id=<?php  echo $row -> id; ?>" class="btn btn-warning"><i class="bi bi-journal-code"></i></a>
+                                        <a href="confirm.php?id=<?php echo $row -> id; ?>" class="btn btn-danger"><i class="bi bi-journal-minus"></i></a>
+                                    </td>
                                 </tr>
                             <?php
                             }

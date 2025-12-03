@@ -52,6 +52,17 @@
                                 class="bi bi-plus-square-fill"></i></a></h1>
                 </div>
                 <div class="table-responsive small">
+                    <div>
+                        <input type="text" placeholder="Escribe tu correo">
+                        <input type="submit" value="Buscar">
+                    </div>
+                    <div>
+                        <select name="" id="">
+                            <option value="">Todos</option>
+                            <option value="1">Activos</option>
+                            <option value="0">Desactivados</option>
+                        </select>
+                    </div>
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>

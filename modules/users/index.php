@@ -53,8 +53,12 @@
                 </div>
                 <div class="table-responsive small">
                     <div>
-                        <input type="text" placeholder="Escribe tu correo">
-                        <input type="submit" value="Buscar">
+                        <form method="GET" class="d-flex gap-2">
+                            <input type="text" name="name" placeholder="Escribe el nombre" 
+                                value="<?php echo isset($_GET['name']) ? $_GET['name'] : ''; ?>">
+                            <input type="submit" value="Buscar" class="btn btn-primary">
+                            <a href="index.php" class="btn btn-secondary">Limpiar</a>
+                        </form>
                     </div>
                     <div>
                         <select name="" id="">
@@ -76,14 +80,15 @@
                         <tbody>
                             <?php
                             require_once '../../lib/connection.php';
+                            $name = isset($_GET['name']) ? $_GET['name'] : "";
                             $query = "SELECT * FROM users";
+                            if (!empty($name)) {
+                                $name = $conexion->real_escape_string($name);
+                                $query .= " WHERE name LIKE '%$name%'";
+                            }
                             $result = $conexion->query($query);
                             if ($result->num_rows == 0) {
-                                ?>
-                                <tr>
-                                    <td colspan="5">No se encontraron registros</td>
-                                </tr>
-                                <?php
+                                echo "<tr><td colspan='5'>No se encontraron registros</td></tr>";
                                 return false;
                             }
                             while ($row = $result->fetch_object()) {

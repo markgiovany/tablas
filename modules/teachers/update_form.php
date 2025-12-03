@@ -4,7 +4,7 @@
 require_once '../../lib/config.php';
 
 $id = $_GET['id'];
-$query = "SELECT * FROM teachers WHERE id = id";
+$query = "SELECT * FROM teachers WHERE id = $id";
 $result = $conexion -> query($query);
 $record = $result ->fetch_object();
 

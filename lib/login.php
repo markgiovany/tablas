@@ -14,6 +14,7 @@ if ($_POST['emailLogin'] == "" || $_POST['passwordLogin'] == "") {
 $emailLogin = $_POST['emailLogin'];
 $passwordLogin = $_POST['passwordLogin'];
 
+
 require_once 'connection.php';
 $query = "SELECT * FROM users WHERE email = '$emailLogin' AND password = '$passwordLogin'";
 $result = $conexion->query($query);

@@ -47,11 +47,18 @@
                     <h1 class="h2 text-uppercase">Registro</h1>
                 </div>
                 <div class="table-responsive small">
+                    <select name="" id="">
+                        <option value="">Usuarios</option>
+                        <option value="">Maestros</option>
+                        <option value="">Alumnos</option>
+                        <option value="">Materias</option>
+                    </select>
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Mensaje</th>
+                                <th scope="col">Módulo</th>
                                 <th scope="col">Fecha</th>
                             </tr>
                         </thead>
@@ -73,6 +80,7 @@
                                 <tr> 
                                     <td class="fw-bold"><?php echo $row -> id; ?></td>
                                     <td class="fw-bold"><?php echo $row -> message; ?></td>
+                                    <td class="fw-bold">Módulo</td>
                                     <td class="fw-bold"><?php echo $row -> inserted_at; ?></td>
                                 </tr>
                             <?php

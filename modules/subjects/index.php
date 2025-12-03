@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body>
@@ -47,13 +48,19 @@
                     <h1 class="h2 text-uppercase">Materias<a href="insert.html" class="btn btn-primary mx-2 mb-2"><i class="bi bi-journal-plus"></i></a></h1>
                 </div>
                 <div class="table-responsive small">
+                    <select name="" id="">
+                        <option value="">Abraham Pech</option>
+                        <option value="">Moi</option>
+                        <option value="">No sé quién más</option>
+                        <option value="">Alexander Castillo</option>
+                    </select>
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
+                                <th scope="col">Maestro</th>
                                 <th scope="col">Cuatrimestre</th>
-                                <th scope="col">Color</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -73,10 +80,13 @@
                             while ($row = $result -> fetch_object()){
                             ?>
                                 <tr> 
-                                    <td class="fw-bold"><?php echo $row -> IDcourses; ?></td>
+                                    <td class="fw-bold d-flex align-items-center gap-2">
+                                        <span class="color_course" style="background: #<?php echo $row->Color; ?>"></span>
+                                        <?php echo $row -> IDcourses; ?>
+                                    </td>
                                     <td class="fw-bold"><?php echo $row -> Name; ?></td>
+                                    <td class="fw-bold"><?php echo $row ->teacher_id; ?></td>
                                     <td class="fw-semibold mx-5"><?php echo $row -> Period; ?></td>
-                                    <td class="fw-semibold"><?php echo $row -> Color; ?></td>
                                     <td>
                                         <a href="update_form.php?IDcourses=<?php  echo $row -> IDcourses; ?>" class="btn btn-warning"><i class="bi bi-journal-code"></i></a>
                                         <a href="confirm.php?IDcourses=<?php echo $row -> IDcourses; ?>" class="btn btn-danger"><i class="bi bi-journal-minus"></i></a>

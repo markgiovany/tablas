@@ -123,15 +123,15 @@
                                     <?php echo $row->IDcourses; ?>
                                 </td>
 
-                                <td>
+                                <td class="align-middle">
                                     <?php echo $row->Name; ?>
                                 </td>
 
-                                <td>
+                                <td class="align-middle">
                                     <?php echo $row->teacher_name; ?>
                                 </td>
 
-                                <td>
+                                <td class="align-middle">
                                     <?php echo $row->Period; ?>
                                 </td>
 

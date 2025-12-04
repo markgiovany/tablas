@@ -83,9 +83,9 @@
                                 while ($row = $result->fetch_object()){
                             ?>
                                 <tr> 
-                                    <td><?php echo $row->id; ?></td>
-                                    <td><?php echo $row->name; ?></td>
-                                    <td><?php echo $row->email; ?></td>
+                                    <td class="align-middle"><?php echo $row->id; ?></td>
+                                    <td class="align-middle"><?php echo $row->name; ?></td>
+                                    <td class="align-middle"><?php echo $row->email; ?></td>
                                     <td>
                                         <a href="update_form.php?id=<?php echo $row->id; ?>" class="btn btn-warning">
                                             <i class="bi bi-journal-code"></i>

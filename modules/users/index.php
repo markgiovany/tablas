@@ -121,11 +121,11 @@ $result = $conexion->query($query);
                         while ($row = $result->fetch_object()) {
                             ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($row->id); ?></td>
-                                <td><?php echo htmlspecialchars($row->name); ?></td>
-                                <td><?php echo htmlspecialchars($row->phone); ?></td>
-                                <td><?php echo htmlspecialchars($row->email); ?></td>
-                                <td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->id); ?></td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->name); ?></td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->phone); ?></td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->email); ?></td>
+                                <td class="align-middle">
                                     <?php
                                     $val = null;
                                     if (isset($row->status)) $val = $row->status;

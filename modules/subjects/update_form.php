@@ -78,10 +78,21 @@ $record = $result ->fetch_object();
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Teacher</label>
-                            <select name= "teacher_id" class="form-control form-control-md">
-                                <option value="1">Abraham Pech</option>
-                                <option value="2">Juanito Pérez</option>
+                            <label class="form-label">Teacher</label>
+
+                            <select name="teacher_id" class="form-control form-control-md">
+                                <option value="">-- Seleccionar maestro --</option>
+
+                                <?php
+                                require_once '../../lib/config.php';
+
+                                $query_teachers = "SELECT id, name FROM teachers";
+                                $result_teachers = $conexion->query($query_teachers);
+
+                                while ($t = $result_teachers->fetch_object()) {
+                                    echo "<option value='{$t->id}'>{$t->name}</option>";
+                                }
+                                ?>
                             </select>
                         </div>
 

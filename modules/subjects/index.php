@@ -86,7 +86,6 @@
                     </select>
                 </form>
 
-                <!-- TABLA -->
                 <div class="table-responsive small">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -103,9 +102,6 @@
                         <?php 
                         require_once '../../lib/config.php';
 
-                        // -----------------------------
-                        // APLICAR FILTRO AQUÍ
-                        // -----------------------------
                         $filter = "";
                         if (isset($_GET['teacher_filter']) && $_GET['teacher_filter'] !== "") {
                             $teacher_id = intval($_GET['teacher_filter']);

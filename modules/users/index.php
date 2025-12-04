@@ -64,7 +64,7 @@
                         <select name="" id="">
                             <option value="">Todos</option>
                             <option value="1">Activos</option>
-                            <option value="0">Desactivados</option>
+                            <option value="0">Inactivos</option>
                         </select>
                     </div>
                     <table class="table table-striped table-sm">
@@ -74,6 +74,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Correo Electronico</th>
+                                <th scope="col">Estatus</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -98,6 +99,7 @@
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->phone; ?></td>
                                     <td><?php echo $row->email; ?></td>
+                                    <td><?php echo ($row->status == 1) ? 'Activo' : 'Inactivo'; ?></td>
                                     <td>
                                         <a href="update_form.php?id=<?php echo $row->id; ?>" class="btn btn-warning"><i
                                                 class="bi bi-pencil-square"></i></a>

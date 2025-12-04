@@ -47,6 +47,11 @@
                     <h1 class="h2 text-uppercase">Registro</h1>
                 </div>
                 <div class="table-responsive small">
+                    <?php 
+                    require_once '../../lib/config.php';
+
+                    $module = isset($_GET['module']) ? $_GET['module'] : 'todos';
+                    ?>
                     <form method="GET" >
                         <select name="module" class="form-select w-auto mb-3" onchange="this.form.submit()">
                             <option value="todos" <?= $module === "todos" ? "selected" : "" ?>>Todos</option>
@@ -65,16 +70,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php 
-                        require_once '../../lib/config.php';
+                        <?php
 
-                        $module = isset($_GET['module']) ? $_GET['module'] : 'todos';
-
-                        // Construir la consulta según el filtro
                         if($module == 'todos'){
-                            $query = "SELECT * FROM logs ORDER BY inserted_at DESC";
+                            $query = "SELECT * FROM logs ORDER BY id DESC";
                         } else {
-                            $query = "SELECT * FROM logs WHERE module = '$module' ORDER BY inserted_at DESC";
+                            $query = "SELECT * FROM logs WHERE module = '$module' ORDER BY id DESC";
                         }
 
                         $result = $conexion->query($query);

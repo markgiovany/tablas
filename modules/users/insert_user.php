@@ -8,7 +8,7 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query = "INSERT INTO users (name, phone, email, password) VALUES ('$name', '$phone', '$email', '$password', '$status')";
+$query = "INSERT INTO users (name, phone, email, password) VALUES ('$name', '$phone', '$email', '$password')";
 $conexion->query($query);
 header('Location:./')
 ?>

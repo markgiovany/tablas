@@ -81,7 +81,7 @@
                             ?>
                                 <tr> 
                                     <td class="fw-bold d-flex align-items-center gap-2">
-                                        <span class="color_course" style="background: #<?php echo $row->Color; ?>"></span>
+                                        <span class="color_course" style="background: <?php echo $row->Color; ?>"></span>
                                         <?php echo $row -> IDcourses; ?>
                                     </td>
                                     <td class="fw-bold"><?php echo $row -> Name; ?></td>

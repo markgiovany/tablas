@@ -78,6 +78,25 @@ $record = $result ->fetch_object();
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Teacher</label>
+
+                            <select name="teacher_id" class="form-control form-control-md">
+                                <option value="">-- Seleccionar maestro --</option>
+
+                                <?php
+                                require_once '../../lib/config.php';
+
+                                $query_teachers = "SELECT id, name FROM teachers";
+                                $result_teachers = $conexion->query($query_teachers);
+
+                                while ($t = $result_teachers->fetch_object()) {
+                                    echo "<option value='{$t->id}'>{$t->name}</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <input type="submit" class="btn btn-success btn-lg" value="Editar">
                             <a href="../subjects/" class="btn btn-danger btn-lg">Regresar</a>
                         </div>

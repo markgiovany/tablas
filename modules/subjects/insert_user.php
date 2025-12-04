@@ -6,6 +6,7 @@ require_once '../../lib/config.php';
 $Name = $_POST['Name'];
 $Period = $_POST['Period'];
 $Color = $_POST['Color'];
+$teacher_id = $_POST['teacher_id'];
 
 if (empty($Name) || empty($Period) || empty($Color)) {
     echo("Pon los datos correspondientes");
@@ -13,7 +14,7 @@ if (empty($Name) || empty($Period) || empty($Color)) {
 }  
 
 else{
-    $query = "INSERT INTO courses (Name, Period, Color) VALUES ('$Name', '$Period', '$Color')";
+    $query = "INSERT INTO courses (Name, Period, Color, teacher_id) VALUES ('$Name', '$Period', '$Color','$teacher_id')";
     $conexion -> query($query);
     header('Location: ./');
 };

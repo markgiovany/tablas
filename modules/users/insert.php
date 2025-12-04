@@ -60,6 +60,11 @@
                         <label for="" class="form-label">Correo</label>
                         <input type="text" class="form-control form-control-lg" placeholder="Escribe tu correo" name="email">
                     </div>
+                    </div>
+                         <div class="mb-3">
+                        <label for="" class="form-label">Contraseña</label>
+                        <input type="text" class="form-control form-control-lg" placeholder="Escribe tu contraseña" name="password">
+                    </div>
                              <div class="mb-3">
                             <input type="submit" class="btn btn-success btn-lg" value="Guardar">
                         </div>

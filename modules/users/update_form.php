@@ -71,6 +71,18 @@ $record = $result->fetch_object();
                         <input type="text" class="form-control form-control-lg"  name="email" value="<?php echo $record->email; ?>">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                     </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Contraseña</label>
+                        <input type="text" class="form-control form-control-lg"  name="password" value="<?php echo $record->password; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Estatus</label>
+                        <select name="status" id="" class="form-select form-select-lg">
+                            <option value="1" <?php echo ($record->status == 1) ? 'selected' : ''; ?>>Activo</option>
+                            <option value="0" <?php echo ($record->status == 0) ? 'selected' : ''; ?>>Inactivo</option>
+                        </select>
+                    </div>
+
                              <div class="mb-3">
                             <input type="submit" class="btn btn-success btn-lg" value="Editar">
                         </div>

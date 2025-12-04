@@ -15,6 +15,8 @@ if (empty($name) || empty($email) || empty($password)) {
 else{
     $query = "INSERT INTO teachers (name, email, password) VALUES ('$name', '$email', '$password')";
     $conexion -> query($query);
+    $mensaje = "Se agregó al profesor: " . $name;
+    $conexion->query("INSERT INTO logs (message) VALUES ('$mensaje')");
     header('Location: ./');
 };
 

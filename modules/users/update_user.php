@@ -11,5 +11,7 @@ $status = $_POST['status'];
 $id = $_POST['id'];
 $query = "UPDATE users SET name = '$name', phone = '$phone', email = '$email', password = '$password', status = '$status' WHERE id = $id";
 $conexion->query($query);
+$mensaje = "Se actualizó al usuario: " . $name;
+$conexion->query("INSERT INTO logs (message) VALUES ('$mensaje')");
 header('Location:./')
 ?>

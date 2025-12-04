@@ -16,6 +16,8 @@ if (empty($Name) || empty($Period) || empty($Color)) {
 else{
     $query = "INSERT INTO courses (Name, Period, Color, teacher_id) VALUES ('$Name', '$Period', '$Color','$teacher_id')";
     $conexion -> query($query);
+    $mensaje = "Se agregó al profesor: " . $Name;
+    $conexion->query("INSERT INTO logs (message) VALUES ('$mensaje')");
     header('Location: ./');
 };
 

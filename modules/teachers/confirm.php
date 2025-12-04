@@ -23,7 +23,7 @@ $conexion ->query($query);
                 <a href="delete.php?id=<?php echo $id; ?>" class="btn btn-success">Si, eliminar</a>
             </div>
             <div class="col">
-                <a href="../subjects/" class="btn btn-danger">No, Regresar</a>
+                <a href="../teachers/" class="btn btn-danger">No, Regresar</a>
             </div>
         </div>
     </div>

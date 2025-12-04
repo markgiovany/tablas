@@ -47,6 +47,12 @@
                     <h1 class="h2 text-uppercase">Profesores<a href="insert.html" class="btn btn-primary mx-2 mb-2"><i class="bi bi-journal-plus"></i></a></h1>
                 </div>
                 <div class="table-responsive small">
+                    <form method="GET" class="d-flex gap-3 mb-3">
+                        <input type="text" name="name" placeholder="Escribe el nombre" 
+                            value="<?php echo isset($_GET['name']) ? $_GET['name'] : ''; ?>">
+                        <input type="submit" value="Buscar" class="btn btn-primary">
+                        <a href="index.php" class="btn btn-secondary">Limpiar</a>
+                    </form>
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
@@ -58,32 +64,40 @@
                         </thead>
                         <tbody>
                             <?php 
-                            require_once '../../lib/config.php';
-                            $query = "SELECT * FROM teachers";
-                            $result = $conexion -> query($query);
-                            if($result -> num_rows == 0){
-                            ?> 
+                                require_once '../../lib/config.php';
+                                $name = isset($_GET['name']) ? $_GET['name'] : "";
+                                $query = "SELECT * FROM teachers";
+                                if (!empty($name)) {
+                                    $name = $conexion->real_escape_string($name);
+                                    $query .= " WHERE name LIKE '%$name%'";
+                                }
+                                $result = $conexion->query($query);
+                                if($result->num_rows == 0){
+                            ?>
                             <tr>
                                 <td colspan="5">No se encuentran registros</td>
                             </tr>
                             <?php
-                            return false;
-                            }
-                            while ($row = $result -> fetch_object()){
+                                return false;
+                                }
+                                while ($row = $result->fetch_object()){
                             ?>
                                 <tr> 
-                                    <td class="fw-bold"><?php echo $row -> id; ?></td>
-                                    <td class="fw-bold"><?php echo $row -> name; ?></td>
-                                    <td class="fw-semibold mx-5"><?php echo $row -> email; ?></td>
+                                    <td><?php echo $row->id; ?></td>
+                                    <td><?php echo $row->name; ?></td>
+                                    <td><?php echo $row->email; ?></td>
                                     <td>
-                                        <a href="update_form.php?id=<?php  echo $row -> id; ?>" class="btn btn-warning"><i class="bi bi-journal-code"></i></a>
-                                        <a href="confirm.php?id=<?php echo $row -> id; ?>" class="btn btn-danger"><i class="bi bi-journal-minus"></i></a>
+                                        <a href="update_form.php?id=<?php echo $row->id; ?>" class="btn btn-warning">
+                                            <i class="bi bi-journal-code"></i>
+                                        </a>
+                                        <a href="confirm.php?id=<?php echo $row->id; ?>" class="btn btn-danger">
+                                            <i class="bi bi-journal-minus"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php
                             }
                             ?>
-
                         </tbody>
                     </table>
                 </div>

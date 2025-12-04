@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<?php require_once '../../lib/validate_session.php'; ?>
+<?php require_once '../../lib/validate_session.php'; 
+?>
     <tbody>
 
 

@@ -1,7 +1,6 @@
-<?php require_once '../../lib/validate_session.php'; 
-?>
 <?php
-require_once '../../lib/connection.php';
+require_once '../../lib/validate_session.php'; 
+require_once '../../lib/config.php';
 
 $name = $_POST['name'];
 $phone = $_POST['phone'];
@@ -11,7 +10,8 @@ $status = $_POST['status'];
 $id = $_POST['id'];
 $query = "UPDATE users SET name = '$name', phone = '$phone', email = '$email', password = '$password', status = '$status' WHERE id = $id";
 $conexion->query($query);
-$mensaje = "Se actualizó al usuario: " . $name;
-$conexion->query("INSERT INTO logs (message) VALUES ('$mensaje')");
+$mensaje = "Se actualizó el usuario: " . $name;
+$module = "usuarios";
+$conexion->query("INSERT INTO logs (message, module) VALUES ('$mensaje', '$module')");
 header('Location:./')
 ?>

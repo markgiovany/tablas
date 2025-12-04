@@ -2,7 +2,7 @@
 ?>
 <?php 
 $id = $_GET['id'];
-require_once '../../lib/connection.php';
+require_once '../../lib/config.php';
 $query = "SELECT * FROM users WHERE id = $id";
 $result = $conexion->query($query);
 $record = $result->fetch_object();

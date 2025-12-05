@@ -51,24 +51,15 @@
                 </div>
             </div>
 
-            <!-- MAIN -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 text-uppercase">
-                        Materias 
-                        <a href="insert.php" class="btn btn-primary mx-2 mb-2">
-                            <i class="bi bi-journal-plus"></i>
-                        </a>
-                    </h1>
+                    <h1 class="h2 text-uppercase">Materias<a href="insert.php" class="btn btn-primary mx-2 mb-2"><i class="bi bi-journal-plus"></i></a></h1>
                 </div>
-
-                <!-- FILTRO -->
                 <form method="GET">
                     <select name="teacher_filter" id="teacher_filter" 
                             class="form-select w-auto mb-3" onchange="this.form.submit()">
 
-                        <option value="">-- Mostrar todos --</option>
+                        <option value="">Todos</option>
 
                         <?php
                         require_once '../../lib/config.php';
@@ -127,20 +118,20 @@
                         while ($row = $result->fetch_object()) {
                         ?>
                             <tr> 
-                                <td class="fw-bold d-flex align-items-center gap-2">
+                                <td class="d-flex align-items-center gap-2">
                                     <span class="color_course" style="background: <?php echo $row->Color; ?>"></span>
                                     <?php echo $row->IDcourses; ?>
                                 </td>
 
-                                <td class="fw-bold">
+                                <td class="align-middle">
                                     <?php echo $row->Name; ?>
                                 </td>
 
-                                <td class="fw-bold">
+                                <td class="align-middle">
                                     <?php echo $row->teacher_name; ?>
                                 </td>
 
-                                <td class="fw-semibold mx-5">
+                                <td class="align-middle">
                                     <?php echo $row->Period; ?>
                                 </td>
 

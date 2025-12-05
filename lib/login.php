@@ -15,7 +15,7 @@ $emailLogin = $_POST['emailLogin'];
 $passwordLogin = $_POST['passwordLogin'];
 
 
-require_once 'connection.php';
+require_once 'config.php';
 $query = "SELECT * FROM users WHERE email = '$emailLogin' AND password = '$passwordLogin'";
 $result = $conexion->query($query);
 if ($result->num_rows == 0) {

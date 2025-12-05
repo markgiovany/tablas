@@ -1,6 +1,6 @@
 <?php
 require_once '../../lib/validate_session.php';
-require_once '../../lib/connection.php'; 
+require_once '../../lib/config.php'; 
 
 $statusColumn = null;
 $colsRes = $conexion->query("SHOW COLUMNS FROM users");
@@ -82,9 +82,8 @@ $result = $conexion->query($query);
         </div>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Usuarios</h1>
-                <a href="insert.php" class="btn btn-primary"><i class="bi bi-plus-square-fill"></i></a>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2 text-uppercase">Usuarios<a href="insert.php" class="btn btn-primary mx-2 mb-2"><i class="bi bi-journal-plus"></i></a></h1>
             </div>
 
             <div class="table-responsive small">
@@ -122,11 +121,11 @@ $result = $conexion->query($query);
                         while ($row = $result->fetch_object()) {
                             ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($row->id); ?></td>
-                                <td><?php echo htmlspecialchars($row->name); ?></td>
-                                <td><?php echo htmlspecialchars($row->phone); ?></td>
-                                <td><?php echo htmlspecialchars($row->email); ?></td>
-                                <td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->id); ?></td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->name); ?></td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->phone); ?></td>
+                                <td class="align-middle"><?php echo htmlspecialchars($row->email); ?></td>
+                                <td class="align-middle">
                                     <?php
                                     $val = null;
                                     if (isset($row->status)) $val = $row->status;
@@ -135,9 +134,8 @@ $result = $conexion->query($query);
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="update_form.php?id=<?php echo urlencode($row->id); ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="confirm.php?id=<?php echo urlencode($row->id); ?>" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
-                                </td>
+                                    <a href="update_form.php?id=<?php echo urlencode($row->id); ?>" class="btn btn-warning"><i class="bi bi-journal-code"></i></a>
+                                    <a href="confirm.php?id=<?php echo urlencode($row->id); ?>" class="btn btn-danger"><i class="bi bi-journal-minus"></i>
                             </tr>
                             <?php
                         }

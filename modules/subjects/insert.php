@@ -1,3 +1,4 @@
+<?php require_once '../../lib/validate_session.php'; ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
 

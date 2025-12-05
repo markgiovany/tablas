@@ -47,12 +47,19 @@
                     <h1 class="h2 text-uppercase">Registro</h1>
                 </div>
                 <div class="table-responsive small">
-                    <select name="" id="">
-                        <option value="">Usuarios</option>
-                        <option value="">Maestros</option>
-                        <option value="">Alumnos</option>
-                        <option value="">Materias</option>
-                    </select>
+                    <?php 
+                    require_once '../../lib/config.php';
+
+                    $module = isset($_GET['module']) ? $_GET['module'] : 'todos';
+                    ?>
+                    <form method="GET" >
+                        <select name="module" class="form-select w-auto mb-3" onchange="this.form.submit()">
+                            <option value="todos" <?= $module === "todos" ? "selected" : "" ?>>Todos</option>
+                            <option value="usuarios" <?= $module === "usuarios" ? "selected" : "" ?>>Usuarios</option>
+                            <option value="profesores" <?= $module === "profesores" ? "selected" : "" ?>>Profesores</option>
+                            <option value="materias" <?= $module === "materias" ? "selected" : "" ?>>Materias</option>
+                        </select>
+                    </form>
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
@@ -63,30 +70,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
-                            require_once '../../lib/config.php';
-                            $query = "SELECT * FROM logs";
-                            $result = $conexion -> query($query);
-                            if($result -> num_rows == 0){
-                            ?> 
-                            <tr>
-                                <td colspan="5">No se encuentran registros</td>
-                            </tr>
-                            <?php
-                            return false;
-                            }
-                            while ($row = $result -> fetch_object()){
-                            ?>
-                                <tr> 
-                                    <td class="fw-bold"><?php echo $row -> id; ?></td>
-                                    <td class="fw-bold"><?php echo $row -> message; ?></td>
-                                    <td class="fw-bold">Módulo</td>
-                                    <td class="fw-bold"><?php echo $row -> inserted_at; ?></td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
+                        <?php
 
+                        if($module == 'todos'){
+                            $query = "SELECT * FROM logs ORDER BY id DESC";
+                        } else {
+                            $query = "SELECT * FROM logs WHERE module = '$module' ORDER BY id DESC";
+                        }
+
+                        $result = $conexion->query($query);
+
+                        if($result->num_rows == 0){
+                        ?> 
+                        <tr>
+                            <td colspan="4">No se encuentran registros</td>
+                        </tr>
+                        <?php
+                        } else {
+                            while ($row = $result->fetch_object()){
+                        ?>
+                        <tr> 
+                            <td><?php echo $row->id; ?></td>
+                            <td><?php echo $row->message; ?></td>
+                            <td><?php echo $row->module; ?></td>
+                            <td><?php echo $row->inserted_at; ?></td>
+                        </tr>
+                        <?php
+                            }
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>
